@@ -5,3 +5,4 @@ empl.mostrarTareasPendientes();
 Console.WriteLine($"usted tiene {empl.TareasPendientes.Count() } tareas por realizar");
 //empl.realizarTareas();
 empl.sumarioDeUnEmpleado();
+empl.Buscador();

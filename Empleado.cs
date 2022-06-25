@@ -13,17 +13,41 @@ class Empleado
         
         Nombre=_nombre;        
     }
-    public Tareas Buscador(string _descripcion){
-        Tareas t=new Tareas();
+    public Tareas Buscador(){
+        Tareas tareaBuscada=new Tareas();
+        Console.WriteLine("ingrese la descripcion de la tarea que desea buscar");
+        string _descripcion=Console.ReadLine();
 
-        /*foreach (Tareas item in TareasPendientes)
+
+        foreach (Tareas item in TareasPendientes)
         {
-            if (_descripcion==item.Descripcio)
+            if (_descripcion==item.Descripcion)
             {
-                return item;
+                tareaBuscada=item;
+                Console.WriteLine("la tarea fue encontrada !!: ");
+                mostrarTarea(tareaBuscada);
             }
-        }*/
-        return t;
+            else
+            {
+                Console.WriteLine("la tarea no fue encontrada");
+                tareaBuscada.IDtarea=0;
+                 tareaBuscada.Descripcion="no existe tarea";
+                tareaBuscada.Duracion=0;
+
+                mostrarTarea(tareaBuscada);
+
+
+                return tareaBuscada;
+            }
+        }
+
+        return tareaBuscada;
+    }
+    public void mostrarTarea(Tareas tarea){
+        Console.WriteLine($"IdTarea {tarea.IDtarea} ");
+        Console.WriteLine($"Descripcion {tarea.Descripcion} ");
+        Console.WriteLine($"Duracion {tarea.Duracion} ");
+        Console.WriteLine("");
     }
 
     public void cargaTareas(){
