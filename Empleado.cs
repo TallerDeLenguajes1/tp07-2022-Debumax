@@ -80,6 +80,48 @@ class Empleado
         TareasPendientes.RemoveAt(numTareaCompletada-1);
 
     }
+    public void sumarioDeUnEmpleado(){
+        int sumario=0;
+        foreach (var item in TareasRealizadas)
+        {
+            sumario=sumario+item.Duracion;
+        }
+        if (sumario==0)
+        {
+            Console.WriteLine($"el/la empleado/a {Nombre} no trabajo ");
+            
+        }
+        else
+        {
+            Console.WriteLine($"el/la empleado/a {Nombre} va trabajo {sumario} hs");
+        }
+
+    }
+
+    public void realizarTareas(){
+        int cantTareas=TareasPendientes.Count();
+        do
+        {
+            Console.WriteLine("usted quiere realizar una tarea? (s/n) ");
+            string valor=Console.ReadLine();
+            if (valor =="s")
+            {
+                Console.WriteLine("ingrese la tarea realizada");
+                int numTarea=Convert.ToInt32(Console.ReadLine());
+                completarTareas(numTarea);
+                cantTareas-=1;
+            }
+            if (TareasPendientes.Count!=0)
+            {
+                mostrarTareasPendientes();        
+            }
+            if (TareasRealizadas.Count!=0)
+            {
+                mostrarTareasRealizadas();
+            }
+        } while (cantTareas!=0);
+
+    }
 
 
 }
